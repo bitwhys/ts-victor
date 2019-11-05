@@ -2,20 +2,27 @@
   "name": "ts-victor",
   "version": "0.1.0",
   "description": "Fork of the Victor 2D vector library written in TypeScript",
+  "main": "dist/ts-victor.cjs.js",
+  "module": "dist/ts-victor.esm.js",
+  "browser": "dist/ts-victor.umd.js",
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "vector",
     "2d",
     "typscript"
   ],
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/bitwhys/ts-victor.git"
   },
   "scripts": {
-    "build": "(echo '/*!' ; cat ./LICENSE ; echo '*/' ; browserify index.js --standalone Victor) > build/victor.js && cat build/victor.js | uglifyjs -mc --comments '/^!/' > build/victor.min.js",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
     "doc": "markdox index.js -o documentation/api.md",
-    "test": "mocha --ui bdd --reporter spec"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "homepage": "http://victorjs.org/",
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
@@ -32,18 +39,16 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.6.1",
     "@typescript-eslint/parser": "^2.6.1",
-    "browserify": "^3.33.0",
-    "chai": "~1.9.1",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
-    "markdox": "^0.1.4",
-    "mocha": "~1.18.2",
+    "markdox": "^0.1.10",
     "prettier": "^1.18.2",
     "rollup": "^1.26.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-typescript": "^1.0.1",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.6.4",
-    "uglify-js": "^2.4.13"
+    "typescript": "^3.6.4"
   }
 }
