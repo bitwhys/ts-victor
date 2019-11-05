@@ -20,9 +20,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "doc": "markdox index.js -o documentation/api.md",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "doc": "markdox index.js -o documentation/api.md"
   },
   "homepage": "http://victorjs.org/",
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
